@@ -1,4 +1,9 @@
-# kariton
+<img src="https://github.com/mbl-bdmu/kariton/blob/d17d8cbdb348a7e357ba09c1df30d4a6ab9e0d69/assets/kariton_word.png" width="150">
+
+
+
+
+
 Masking of flagged regions and lineage assignment
 
 This pipeline masked regions with mix sites flagged by Bammix and regions with more than 4x depth in the Negative Control samples.
