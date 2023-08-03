@@ -57,8 +57,8 @@ workflow melonmask {
         flaggedNegativeControlRegion(ch_negativebam)
 
 		flaggedNegativeControlRegion.out.negcontrol_extract
-				.collectFile(name: "misc/combined.BAM.region.csv", newLine: true,
-				storeDir: params.out_dir)
+				.collectFile(name: "combined.BAM.region.csv", newLine: true,
+				storeDir: "${params.out_dir}/misc")
 				.set{ch_combinedBAM}
 
 
