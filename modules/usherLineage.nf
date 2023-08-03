@@ -16,7 +16,7 @@ process usherLineage {
     path usher_pb
 
 	output:
-	path "$central_id/", emit: usherLin
+	path "*.usher.tsv", emit: tsv
 
 
 
@@ -24,6 +24,10 @@ process usherLineage {
 	"""
     usher -i $usher_pb \
     -v $vcf -k 50 -K 2000 -T 1 -d $central_id
+
+	mv ${central_id}/clades.txt ${central_id}.usher.tsv
+
+	sed -i '1i seqName\tusherClade\tusherPango' ${central_id}.usher.tsv
 
 	"""
 }

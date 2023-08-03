@@ -3,11 +3,11 @@ process barcodeTocentralID {
 
 	container 'ufuomababatunde/biopython:v1.2.0'
 
-	tag "Extracting central ID of flagged samples"
+	tag "Extracting from flagged samples"
 
 
 	publishDir (
-	path: "${params.out_dir}",
+	path: "${params.out_dir}/misc",
 	mode: "copy",
 	overwrite: "true"
 	)
@@ -40,9 +40,3 @@ process barcodeTocentralID {
 
 	"""
 }
-
-
-
-
-
-

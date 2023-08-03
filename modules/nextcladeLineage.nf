@@ -17,15 +17,15 @@ process nextcladeLineage {
 	path nextclade
 
 	output:
-	tuple val(central_id), path("nextclade*tsv"), emit: nextclade_TSV
+	//tuple val(central_id), path("*nextclade.tsv"), emit: nextclade_TSV
     tuple val(central_id), path("nextcladetree*.json"), emit: nextclade_JSON
-
+	path "*nextclade.tsv", emit: tsv
 
 	script:
 	"""
 	nextclade run \
 	--input-dataset $nextclade \
-	--output-tsv nextclade.${central_id}.tsv \
+	--output-tsv ${central_id}.nextclade.tsv \
 	--output-tree "nextcladetree.${central_id}.json" \
 	$fasta
 
