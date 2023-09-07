@@ -14,7 +14,7 @@ include {flaggedNegativeControlRegion} from '../modules/extractBAMregion.nf'
 include {primerFlaggingNEGATIVE} from '../modules/primerRegionsNEGATIVE.nf'
 include {maskmix} from '../modules/maskMixsite.nf'
 include {maskNegative} from '../modules/maskNegative.nf'
-
+include {checkNs} from '../modules/checkNs.nf'
 
 
 workflow melonmask {
@@ -58,7 +58,7 @@ workflow melonmask {
 
 		flaggedNegativeControlRegion.out.negcontrol_extract
 				.collectFile(name: "combined.BAM.region.csv", newLine: true,
-				storeDir: params.out_dir)
+				storeDir: "${params.out_dir}/misc")
 				.set{ch_combinedBAM}
 
 
@@ -68,9 +68,11 @@ workflow melonmask {
 
 		maskNegative(maskmix.out.maskedMix, primerFlaggingNEGATIVE.out.flaggedPrimerNEGATIVE)
 
+		checkNs(maskNegative.out.maskedNeg)
+
 		
 	emit:
-		melon = maskNegative.out.fin
+		melon = checkNs.out.fin
 
 
 }

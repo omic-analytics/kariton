@@ -15,8 +15,7 @@ process maskNegative {
 
 
 	output:
-	tuple val(central_id), path("*.maskedMixNegative.fasta"), emit: fin
-	
+	tuple val(central_id), path("*.maskedMixNegative.fasta"), emit: maskedNeg
 	
 	script:
 	"""
@@ -27,5 +26,8 @@ process maskNegative {
 	else
 		cat $fasta > $params.prefix_fasta${central_id}.maskedMixNegative.fasta
 	fi
+
+
+
 	"""
 }

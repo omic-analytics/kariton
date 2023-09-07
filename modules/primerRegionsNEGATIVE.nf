@@ -6,7 +6,7 @@ process primerFlaggingNEGATIVE {
 	tag "flagging primer pairs"
 
 	publishDir (
-	path: "${params.out_dir}",
+	path: "${params.out_dir}/misc",
 	mode: "copy",
 	overwrite: "true"
 	)

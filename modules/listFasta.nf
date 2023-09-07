@@ -6,7 +6,7 @@ process listFasta {
 	tag "listing initial fasta files"
 
 	publishDir (
-	path: "${params.out_dir}",
+	path: "${params.out_dir}/misc",
 	mode: "copy",
 	overwrite: "true"
 	)

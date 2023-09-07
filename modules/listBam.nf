@@ -6,7 +6,7 @@ process listBam {
 	tag "listing BAM files of negative control"
 
 	publishDir (
-	path: "${params.out_dir}",
+	path: "${params.out_dir}/misc",
 	mode: "copy",
 	overwrite: "true"
 	)
